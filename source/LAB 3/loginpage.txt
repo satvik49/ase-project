@@ -1,0 +1,22 @@
+<html>
+    
+    <head>
+        <h1><font size="6">Login Page</font></h1>
+    </head>
+<body>
+   <form>
+        <br/><br/><br/><br/><br/>
+        Email &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <input type="text" name="email"  > 
+        <br/><br/><br/><br/><br/>
+        Password &nbsp&nbsp&nbsp&nbsp<input type="password" name="password"  > 
+        <br/><br/><br/><br/><br/>
+        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+       <a href="map.html">
+       <button type="button">LOG IN</button>
+       </a>&nbsp&nbsp&nbsp
+       <a href="registration.html">
+       <button type="button">REGISTRATION</button>
+        </a>
+    </form>
+    </body>
+</html>

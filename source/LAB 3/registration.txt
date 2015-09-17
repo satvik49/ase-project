@@ -1,0 +1,32 @@
+<html>
+    <head><h1>registration</h1>
+    <script type="text/javascript">
+     function Click() {
+vae name=document.getElementId("fn");
+localStorage.setItem("fn",name.value);
+Retrieve();
+}
+function Retrieve() {
+var name = document.getElementId("fn");
+name.value = localStorage.getItem("fn");
+
+}
+</script>
+    </head>
+    <body>
+        <form tag="log on" >
+            <div aligh="center">
+                First Name&nbsp&nbsp <input type="text" name="first name" id="fn"><br></br>
+                Last name &nbsp&nbsp<input type="text" name="last name"><br></br>
+                Password &nbsp<input type="password" name="password"><br></br>
+                Confirmation Password <input type="password" name="password"><br></br>
+                Date of birth&nbsp&nbsp <input type="date" name="Date of birth"><br></br>
+                Phone number&nbsp&nbsp<input type="numeric" name="phone number"><br></br>
+                Email Id&nbsp&nbsp <input type="email" name="email"><br></br>
+                
+                &nbsp&nbsp&nbsp&nbsp<input type="submit" value="submit" onclick="click()">
+            </div>
+           
+        </form>
+    </body>
+</html>
