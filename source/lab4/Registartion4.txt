@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <h1 font size="4" align="center">Registration</font></h1>
+	<script>
+
+		
+		function register()
+		{
+				
+				
+				
+        				
+								    
+				
+			localStorage.setItem("fname", document.getElementById("fname").value);
+			localStorage.setItem("lname", document.getElementById("lname").value);
+			localStorage.setItem("username", document.getElementById("username").value);
+			localStorage.setItem("password", document.getElementById("password").value);
+                        localStorage.setItem("phone", document.getElementById("phone").value);
+			
+			
+
+			
+				
+		}
+	</script>
+    </head>
+     <body bgcolor="#AACFA0">
+    <form>
+      <p>
+   First name &nbsp&nbsp&nbsp<input type="text" id="fname">
+&nbsp&nbsp&nbsp&nbsp Lastname &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" id="lname"></p>
+<p>
+        username &nbsp&nbsp&nbsp<input type="text" id="username"></br></br>
+        
+        password  &nbsp&nbsp&nbsp<input type="password" id="password" ></br></br>
+        phone &nbsp&nbsp&nbsp&nbsp<input type="phone" id="phone" ></p></br></br>
+        
+  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="submit" onclick="register()"value="Register">
+</form>
+
+
+
+    </body>
+</html>

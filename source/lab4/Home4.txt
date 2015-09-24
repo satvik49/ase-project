@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<style>
+h1 {
+    border-bottom: 3px solid #cc9900;
+    color: #996600;
+    font-size: 30px;
+}
+table, th , td  {
+    border: 1px solid grey;
+    border-collapse: collapse;
+    padding: 5px;
+}
+table tr:nth-child(odd)	{
+    background-color: #f1f1f1;
+}
+table tr:nth-child(even) {
+    background-color: #ffffff;
+}
+</style>
+</head>
+
+<body>
+
+<div>
+       Welcome  <div id="welcome"></div> 
+               Enter Company:  <input type="text"  id="Item"/>
+                
+                &nbsp&nbsp&nbsp<button id="btn" onclick="findOut()">
+                    Get  Information
+                </button>
+                 
+           
+            
+	  
+
+        </div></br></br>
+
+
+ 
+<div id="id01"></div></br></br>
+<img src="http://chart.finance.yahoo.com/z?s=WMT&t=12m&q=l&z=l&p=m1,m2
+" height="200" width="400"></img>&nbsp
+<form>
+
+<html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+
+        // Create the data table.
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Topping');
+        data.addColumn('number', 'Slices');
+        data.addRows([
+          ['milk', 3],
+          ['bread', 1],
+          ['vegtable', 1],
+          ['fruits', 1],
+          ['other', 2]
+        ]);
+
+        // Set chart options
+        var options = {'title':'sales of item in walmart',
+                       'width':400,
+                       'height':300};
+
+        // Instantiate and draw our chart, passing in some options.
+        var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
+</html>
+</form>
+</body>
+</html>
+
+<script>
+var welcome = document.getElementById('welcome');
+welcome.innerHTML = localStorage.getItem("username") ;
+function findOut(){
+
+	
+	var item = document.getElementById('Item').value;
+var name="one.xml";
+var url = "http://www.SupermarketAPI.com/api.asmx/SearchByProductName?APIKEY=de28a82ddb&ItemName=" + item;
+downloadURI();
+setTimeout(read, 6000);
+
+
+
+function downloadURI() 
+{
+    
+
+    var link = document.createElement("a");
+    link.download = name;
+    link.href = url;
+    link.click();
+}
+function read(){
+var xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function() {
+    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+        myFunction(xmlhttp.responseXML);
+    }
+  }
+xmlhttp.open("GET", "SearchByProductName.xml", true);
+xmlhttp.send();
+function myFunction(xmlDoc) {
+ 
+var x1 = xmlDoc.getElementsByTagName("Itemname");
+var x2 = xmlDoc.getElementsByTagName("ItemID");
+var x3 = xmlDoc.getElementsByTagName("ItemCategory");
+var x4 = xmlDoc.getElementsByTagName("ItemDescription");
+
+var x6 = xmlDoc.getElementsByTagName("AisleNumber");
+var table="<table><tr><th>Itemname</th><th>ItemID</th><th>ItemCategory</th><th>ItemDescription</th><th>AisleNumber</th></tr>";
+for (var i = 0; i <(x1.length/2); i++) { 
+
+  table += "<tr><td>" +
+  x1[i].childNodes[0].nodeValue + "</td>"  + 
+  "<td>" + x2[i].childNodes[0].nodeValue + "</td>" +
+   "<td>" + x3[i].childNodes[0].nodeValue + "</td>" +
+   "<td>" + x4[i].childNodes[0].nodeValue + "</td>" +
+    
+     "<td>" + x6[i].childNodes[0].nodeValue + "</td>" +
+  "</tr>";
+ 
+}
+table+="</table>";
+
+document.getElementById("id01").innerHTML = table;
+}
+}	
+		}
+		  
+
+
+</script>

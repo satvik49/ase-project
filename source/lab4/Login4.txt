@@ -1,0 +1,34 @@
+<html>
+<head>
+<h1 align="center"> Stock Details</h1>
+<script>
+
+</script>	
+</head>
+<body bgcolor="3A3FB7">
+   
+    <p align="center"><font size="6" align="center">Provide specific detail</font></p>
+        <br/><br/>
+         
+	
+        
+    <p align="center">
+	Username:  <input type="text" name="username">
+</p> 
+        <p align="center">
+        Password: <input type="password" name="password"  ></br></br></br></br>
+</p> 
+        
+      
+         <p align="center">
+        <a href="Home4.html" ><button type="button" style="width:60;height:20" >Login</button></a>
+        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp  
+	
+         
+	
+        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+        <a href="Registration.html"><button type="button" style="width:60;height:20;bgcolor:00FF33">Register</button></a>
+        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+        </p>
+    </body>
+</html> 
