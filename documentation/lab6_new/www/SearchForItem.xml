@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfProduct xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.SupermarketAPI.com">
+  <Product>
+    <Itemname>NOITEM</Itemname>
+    <ItemDescription>NODESCRIPTION</ItemDescription>
+    <ItemCategory>NOCATEGORY</ItemCategory>
+    <ItemID>NOITEMID</ItemID>
+    <ItemImage>http://smapistorage.blob.core.windows.net/thumbimages/NOIMAGE</ItemImage>
+    <AisleNumber>Aisle:NOAISLE</AisleNumber>
+  </Product>
+</ArrayOfProduct>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+      <script>
+      var welcome = document.getElementById('welcome');
+          welcome.innerHTML = localStorage.getItem("username") ;
+function findOut(){
+
+	
+	var item = document.getElementById('Item').value;
+    var city = document.getElementById('city').value;
+    var state = document.getElementById('state').value;
+var name="one.xml";
+var url = "http://www.SupermarketAPI.com/api.asmx/StoresByCityState?APIKEY=abb0645e0a&SelectedCity="+city+"&SelectedState="+state;
+//downloadURI();
+//setTimeout(read, 6000);
+read();
+
+
+function downloadURI() 
+{
+    
+    var link = document.createElement("a");
+    link.download = name;
+    link.href = url;
+    link.click();
+}
+function read(){
+  alert("hello");  
+var xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function() {
+    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+        myFunction(xmlhttp.responseXML);
+    }
+  }
+xmlhttp.open("GET", "StoresByCityState.xml", true);
+xmlhttp.send();
+function myFunction(xmlDoc) {
+ 
+var x1 = xmlDoc.getElementsByTagName("Storename");
+var x2 = xmlDoc.getElementsByTagName("Address");
+var x3 = xmlDoc.getElementsByTagName("City");
+var x4 = xmlDoc.getElementsByTagName("State");
+var x5 = xmlDoc.getElementsByTagName("Zip");
+var x6 = xmlDoc.getElementsByTagName("StoreId");
+var table="<table><tr><th>Storename</th><th>Address</th><th>City</th><th>State</th><th>Zip</th><th>StoreId</th></tr>";
+    
+for (var i = 0; i <(x1.length); i++) { 
+
+  table += "<tr><td>" +
+  x1[i].childNodes[0].nodeValue + "</td>"  + 
+  "<td>" + x2[i].childNodes[0].nodeValue + "</td>" +
+   "<td>" + x3[i].childNodes[0].nodeValue + "</td>" +
+   "<td>" + x4[i].childNodes[0].nodeValue + "</td>" +
+    "<td>" + x5[i].childNodes[0].nodeValue + "</td>" +
+     "<td>" + x6[i].childNodes[0].nodeValue + "</td>" +
+  "</tr>";
+ 
+}
+table+="</table>";
+
+document.getElementById("id01").innerHTML = table;
+}
+}	
+		}
+    
+    
+    
+    
+    function findOut2(){
+
+	
+	var item = document.getElementById('Item').value;
+    var storeid = document.getElementById('storeid').value;
+var name="one.xml";
+var url = "http://www.SupermarketAPI.com/api.asmx/SearchForItem?APIKEY=abb0645e0a&StoreId="+storeid+"&ItemName="+item;
+downloadURI();
+setTimeout(read, 6000);
+
+
+
+function downloadURI() 
+{
+    
+
+    var link = document.createElement("a");
+    link.download = name;
+    link.href = url;
+    link.click();
+}
+function read(){
+var xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function() {
+    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+        myFunction(xmlhttp.responseXML);
+    }
+  }
+xmlhttp.open("GET", "SearchForItem.xml", true);
+xmlhttp.send();
+function myFunction(xmlDoc) {
+ 
+var x1 = xmlDoc.getElementsByTagName("Itemname");
+var x2 = xmlDoc.getElementsByTagName("ItemDescription");
+var x3 = xmlDoc.getElementsByTagName("ItemCategory");
+var x4 = xmlDoc.getElementsByTagName("ItemID");
+var x5 = xmlDoc.getElementsByTagName("AisleNumber");
+var x6 = xmlDoc.getElementsByTagName("Pricing");
+var table="<table><tr><th>Itemname</th><th>ItemDescription</th><th>ItemCategory</th><th>ItemID</th><th>AisleNumber</th></tr>";
+    alert("hello");
+for (var i = 0; i <(x1.length); i++) { 
+  table += "<tr><td>" +
+  x1[i].childNodes[0].nodeValue + "</td>"  + 
+  "<td>" + x2[i].childNodes[0].nodeValue + "</td>" +
+   "<td>" + x3[i].childNodes[0].nodeValue + "</td>" +
+   "<td>" + x4[i].childNodes[0].nodeValue + "</td>" +
+    "<td>" + x5[i].childNodes[0].nodeValue + "</td>" +
+     
+  "</tr>";
+ 
+}
+table+="</table>";
+document.getElementById("id01").innerHTML = table;
+}
+}	
+		}
+		  
+      </script>
+  </head>
+  <body ng-app="starter" bgcolor="#81F781">
+
+    
+      <div>
+       Welcome  <div id="welcome"></div> 
+            Enter state:  <select id="state">
+                    <option value="MO">Missouri</option>
+            </select>
+            Enter City: <select id="city">
+                    <option value="Saint Louis">saint louis</option>
+                    <option value="Woodhaven">woodhaven</option>
+            </select>
+                
+                &nbsp&nbsp&nbsp<button id="btn" onclick="findOut()">
+                                 Get  Information
+                </button>
+    </br></br>
+    Enter Item:  <input type="text"  id="Item"/>
+    Enter StoreID:  <input type="text"  id="storeid"/>               
+     &nbsp&nbsp&nbsp<button id="btn2" onclick="findOut2()">
+                                 Get  Information            
+           
+                    </button>   
+    <div  ng-controller="GeoCtrl">
+    <button id="btn3" ng-click="findOut3()">
+                                 findout3            
+           
+                    </button>   
+    </div>
+	  
+
+        </div>
+
+    <div id="id01"></div>
+    </br></br>
+    
+
+  </body>
+</html>
+
+
+
